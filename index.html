@@ -121,9 +121,9 @@ header .btn{min-height:42px;padding:0 20px;font-size:.92rem}
 .hero .prova strong{display:block;color:var(--ouro);font-size:1.7rem;line-height:1.1;font-weight:800;letter-spacing:-.02em}
 .tela{position:relative;justify-self:center;width:min(100%,340px);aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:var(--brasa);border:1px solid var(--linha);box-shadow:0 30px 80px -20px rgba(255,197,42,.18)}
 .tela video,.tela img{width:100%;height:100%;object-fit:cover}
-.tela button{position:absolute;inset:auto 14px 14px 14px;display:flex;align-items:center;gap:10px;justify-content:center;min-height:48px;border-radius:999px;border:0;background:rgba(15,13,10,.82);backdrop-filter:blur(8px);color:var(--texto);font-weight:800;font-size:.95rem;font-family:inherit;cursor:pointer}
-.tela button:hover{background:rgba(15,13,10,.95)}
-.tela button i{width:0;height:0;border-left:11px solid var(--ouro);border-block:7px solid transparent}
+.tela button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;border:2px solid var(--ouro);background:rgba(15,13,10,.65);backdrop-filter:blur(8px);cursor:pointer;transition:transform .2s,background .2s}
+.tela button:hover{background:rgba(15,13,10,.9);transform:translate(-50%,-50%) scale(1.08)}
+.tela button i{width:0;height:0;margin-left:5px;border-left:20px solid var(--ouro);border-block:13px solid transparent}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.tela{width:min(70%,280px);justify-self:start}}
 
 /* seções */
@@ -248,7 +248,7 @@ dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height
         <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.webp" aria-label="Prévia do vídeo institucional da Mais Festas">
           <source src="assets/video-loop.mp4" type="video/mp4">
         </video>
-        <button type="button" data-abrir-video><i></i>Assistir com som</button>
+        <button type="button" data-abrir-video aria-label="Assistir ao vídeo com som"><i></i></button>
       </div>
     </div>
   </div>
