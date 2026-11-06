@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reginaldocravoroxo.github.io/Site-Mais-Festas/sitemap.xml
+Sitemap: https://maisfestas.com.br/sitemap.xml
