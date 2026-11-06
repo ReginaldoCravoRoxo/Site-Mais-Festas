@@ -76,23 +76,23 @@ section{padding-block:clamp(64px,9vw,120px)}
 .funil{background:var(--brasa);border-block:1px solid var(--linha)}
 .trilha{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:84px}
 .trilha::before{content:"";position:absolute;left:0;right:0;top:56px;height:2px;background:var(--linha)}
-.trilha::after{content:"";position:absolute;left:0;top:56px;height:2px;width:0;background:var(--ouro);transition:width 2.4s cubic-bezier(.3,.7,.2,1)}
+.trilha::after{content:"";position:absolute;left:0;top:56px;height:2px;width:0;background:var(--ouro);transition:width 5s cubic-bezier(.3,.7,.2,1)}
 .trilha.ativa::after{width:100%}
 .passo{position:relative}
 .passo::before{content:"";position:absolute;top:-35px;left:0;width:14px;height:14px;border-radius:50%;background:var(--carvao);border:2px solid var(--linha);transition:background .4s,border-color .4s}
 .trilha.ativa .passo::before{background:var(--ouro);border-color:var(--ouro)}
-.trilha.ativa .passo:nth-child(1)::before{transition-delay:.1s}
-.trilha.ativa .passo:nth-child(2)::before{transition-delay:.8s}
-.trilha.ativa .passo:nth-child(3)::before{transition-delay:1.6s}
-.trilha.ativa .passo:nth-child(4)::before{transition-delay:2.3s}
+.trilha.ativa .passo:nth-child(1)::before{transition-delay:.2s}
+.trilha.ativa .passo:nth-child(2)::before{transition-delay:1.7s}
+.trilha.ativa .passo:nth-child(3)::before{transition-delay:3.4s}
+.trilha.ativa .passo:nth-child(4)::before{transition-delay:4.8s}
 .passo b{display:block;color:var(--ouro);font-weight:800;margin-bottom:6px}
 .passo p{color:var(--suave);font-size:.98rem;margin-top:8px}
-.balao{position:absolute;top:-26px;left:0;width:52px;height:auto;transform:translate(-8px,0);transition:left 2.4s cubic-bezier(.3,.7,.2,1);filter:drop-shadow(0 8px 12px rgba(0,0,0,.5))}
+.balao{position:absolute;top:-26px;left:0;width:52px;height:auto;transform:translate(-8px,0);transition:left 5s cubic-bezier(.3,.7,.2,1);filter:drop-shadow(0 8px 12px rgba(0,0,0,.5))}
 .trilha.ativa .balao{left:calc(100% - 44px)}
 @media(max-width:760px){
   .trilha{grid-template-columns:1fr;padding:0 0 0 44px;gap:32px}
   .trilha::before,.trilha::after{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
-  .trilha::after{height:0;width:2px;transition:height 2.4s}
+  .trilha::after{height:0;width:2px;transition:height 5s}
   .trilha.ativa::after{height:100%;width:2px}
   .passo::before{left:-45px;top:8px}
   .balao{display:none}
