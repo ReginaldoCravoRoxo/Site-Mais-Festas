@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mais Festas | Tráfego pago e vendas para buffets infantis</title>
+<meta name="description" content="Agência de tráfego pago feita por quem nasceu dentro de um buffet. Do anúncio à festa fechada: demanda, marketing e processo de vendas conectados.">
+<meta name="theme-color" content="#0F0D0A">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/poster.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carvao:#0F0D0A; --brasa:#1A1510; --linha:#2E261C;
+  --ouro:#FFC52A; --balao:#E03A3E;
+  --texto:#F6F1E7; --suave:#A99F8E;
+  --raio:18px;
+  --pad:clamp(20px,5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carvao);color:var(--texto);font:400 1.0625rem/1.65 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1.05;margin:0}
+h1{font-size:clamp(2.4rem,6.2vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4.4vw,3.1rem)}
+h3{font-size:1.25rem;letter-spacing:-.01em;line-height:1.25}
+p{margin:0}
+.muted{color:var(--suave)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:52ch;color:#d9d1c2}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:800;font-size:1rem;line-height:1;font-family:inherit;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
+.btn-ouro{background:var(--ouro);color:#1a1200}
+.btn-ouro:hover{background:#ffd45c}
+.btn-borda{border-color:var(--linha);color:var(--texto);background:transparent}
+.btn-borda:hover{border-color:var(--ouro)}
+.btn:active{transform:scale(.97)}
+
+/* topo */
+header{position:sticky;top:0;z-index:20;background:rgba(15,13,10,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+header img{height:42px;width:auto}
+header nav{display:flex;gap:28px;align-items:center}
+header nav a:not(.btn){text-decoration:none;color:var(--suave);font-weight:500;font-size:.95rem}
+header nav a:not(.btn):hover{color:var(--texto)}
+header .btn{min-height:42px;padding:0 20px;font-size:.92rem}
+@media(max-width:760px){header nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,96px);background:radial-gradient(60% 70% at 85% 30%,#2a1d0c 0%,transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,88px);align-items:center}
+.hero h1{margin-bottom:24px}
+.hero .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero .prova{margin-top:40px;display:flex;gap:28px;flex-wrap:wrap;color:var(--suave);font-size:.95rem}
+.hero .prova strong{display:block;color:var(--ouro);font-size:1.7rem;line-height:1.1;font-weight:800;letter-spacing:-.02em}
+.tela{position:relative;justify-self:center;width:min(100%,340px);aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:var(--brasa);border:1px solid var(--linha);box-shadow:0 30px 80px -20px rgba(255,197,42,.18)}
+.tela video,.tela img{width:100%;height:100%;object-fit:cover}
+.tela button{position:absolute;inset:auto 14px 14px 14px;display:flex;align-items:center;gap:10px;justify-content:center;min-height:48px;border-radius:999px;border:0;background:rgba(15,13,10,.82);backdrop-filter:blur(8px);color:var(--texto);font-weight:800;font-size:.95rem;font-family:inherit;cursor:pointer}
+.tela button:hover{background:rgba(15,13,10,.95)}
+.tela button i{width:0;height:0;border-left:11px solid var(--ouro);border-block:7px solid transparent}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.tela{order:-1;width:min(70%,280px);justify-self:start}}
+
+/* seções */
+section{padding-block:clamp(64px,9vw,120px)}
+.topo-sec{margin-bottom:clamp(36px,5vw,64px);max-width:720px}
+.topo-sec p{margin-top:16px}
+
+/* funil */
+.funil{background:var(--brasa);border-block:1px solid var(--linha)}
+.trilha{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:84px}
+.trilha::before{content:"";position:absolute;left:0;right:0;top:56px;height:2px;background:var(--linha)}
+.trilha::after{content:"";position:absolute;left:0;top:56px;height:2px;width:0;background:var(--ouro);transition:width 2.4s cubic-bezier(.3,.7,.2,1)}
+.trilha.ativa::after{width:100%}
+.passo{position:relative}
+.passo::before{content:"";position:absolute;top:-35px;left:0;width:14px;height:14px;border-radius:50%;background:var(--carvao);border:2px solid var(--linha);transition:background .4s,border-color .4s}
+.trilha.ativa .passo::before{background:var(--ouro);border-color:var(--ouro)}
+.trilha.ativa .passo:nth-child(1)::before{transition-delay:.1s}
+.trilha.ativa .passo:nth-child(2)::before{transition-delay:.8s}
+.trilha.ativa .passo:nth-child(3)::before{transition-delay:1.6s}
+.trilha.ativa .passo:nth-child(4)::before{transition-delay:2.3s}
+.passo b{display:block;color:var(--ouro);font-weight:800;margin-bottom:6px}
+.passo p{color:var(--suave);font-size:.98rem;margin-top:8px}
+.balao{position:absolute;top:-26px;left:0;width:52px;height:auto;transform:translate(-8px,0);transition:left 2.4s cubic-bezier(.3,.7,.2,1);filter:drop-shadow(0 8px 12px rgba(0,0,0,.5))}
+.trilha.ativa .balao{left:calc(100% - 44px)}
+@media(max-width:760px){
+  .trilha{grid-template-columns:1fr;padding:0 0 0 44px;gap:32px}
+  .trilha::before,.trilha::after{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .trilha::after{height:0;width:2px;transition:height 2.4s}
+  .trilha.ativa::after{height:100%;width:2px}
+  .passo::before{left:-45px;top:8px}
+  .balao{display:none}
+}
+
+/* pilares */
+.pilares{display:grid;gap:0}
+.pilar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(16px,4vw,64px);padding-block:32px;border-top:1px solid var(--linha);align-items:start}
+.pilar:last-child{border-bottom:1px solid var(--linha)}
+.pilar h3{font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.02em}
+.pilar p{color:var(--suave);max-width:56ch}
+@media(max-width:700px){.pilar{grid-template-columns:1fr}}
+
+/* história */
+.historia .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+.historia h2{position:sticky;top:100px}
+.historia .texto{display:grid;gap:20px;color:#d9d1c2}
+.numeros{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px;padding-top:28px;border-top:1px solid var(--linha)}
+.numeros strong{display:block;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.03em;color:var(--ouro);line-height:1}
+.numeros span{color:var(--suave);font-size:.95rem}
+@media(max-width:860px){.historia .wrap{grid-template-columns:1fr}.historia h2{position:static}}
+
+/* reunião */
+.reuniao{background:var(--brasa);border-top:1px solid var(--linha)}
+.reuniao .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+form{display:grid;gap:18px}
+label{display:grid;gap:8px;font-weight:500;font-size:.95rem}
+input,select{width:100%;min-height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--linha);background:var(--carvao);color:var(--texto);font-size:1rem;font-family:inherit}
+input::placeholder{color:#6f6657}
+input:focus,select:focus{border-color:var(--ouro);outline:none;box-shadow:0 0 0 3px rgba(255,197,42,.25)}
+form .btn{width:100%;margin-top:6px}
+.nota{font-size:.88rem;color:var(--suave)}
+@media(max-width:860px){.reuniao .wrap{grid-template-columns:1fr}}
+
+footer{padding-block:36px;border-top:1px solid var(--linha);color:var(--suave);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer img{height:36px;width:auto}
+
+/* vídeo completo */
+dialog{padding:0;border:0;border-radius:24px;background:#000;max-width:min(92vw,420px);width:100%;overflow:hidden}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog video{width:100%;max-height:86vh;background:#000}
+dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(15,13,10,.8);color:var(--texto);font-size:1.4rem;cursor:pointer}
+
+/* entrada única do hero */
+@media(prefers-reduced-motion:no-preference){
+  .hero .wrap>*{animation:entra .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero .tela{animation-delay:.15s}
+  @keyframes entra{from{opacity:0;transform:translateY(14px)}}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trilha::after,.balao,.passo::before{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#topo" aria-label="Mais Festas, início"><img src="assets/logo.webp" alt="Mais Festas" width="55" height="42"></a>
+    <nav aria-label="Principal">
+      <a href="#funil">Como funciona</a>
+      <a href="#pilares">O que fazemos</a>
+      <a href="#historia">Quem somos</a>
+      <a class="btn btn-ouro" href="#reuniao">Agendar reunião</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Seu buffet com a agenda cheia de festas.</h1>
+        <p class="lead">Tráfego pago, atendimento e vendas trabalhando juntos, feitos por quem nasceu dentro de um buffet e sabe o que acontece depois do clique.</p>
+        <div class="acoes">
+          <a class="btn btn-ouro" href="#reuniao">Agendar reunião</a>
+          <button class="btn btn-borda" type="button" data-abrir-video>Ver o vídeo completo</button>
+        </div>
+        <div class="prova">
+          <div><strong>+400</strong>clientes atendidos</div>
+          <div><strong>80%</strong>do faturamento de uma rede de franquias veio dos nossos anúncios</div>
+        </div>
+      </div>
+      <div class="tela">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.webp" aria-label="Prévia do vídeo institucional da Mais Festas">
+          <source src="assets/video-loop.mp4" type="video/mp4">
+        </video>
+        <button type="button" data-abrir-video><i></i>Assistir com som</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="funil" id="funil">
+    <div class="wrap">
+      <div class="topo-sec">
+        <h2>Do anúncio à festa fechada.</h2>
+        <p class="lead">Anúncio sozinho não fecha festa. Cuidamos do caminho inteiro, porque é nele que o contato se perde ou vira reserva.</p>
+      </div>
+      <div class="trilha" id="trilha">
+        <img class="balao" src="assets/balao.webp" alt="" width="52" height="74" aria-hidden="true">
+        <div class="passo"><b>1. Anúncio</b><h3>O pai certo vê sua festa</h3><p>Campanhas segmentadas para quem está procurando buffet na sua região.</p></div>
+        <div class="passo"><b>2. Atendimento</b><h3>O contato é respondido na hora</h3><p>Roteiro de resposta para o lead não esfriar enquanto compara outros buffets.</p></div>
+        <div class="passo"><b>3. Visita</b><h3>A família conhece o espaço</h3><p>Agendamento e confirmação para a visita acontecer de fato.</p></div>
+        <div class="passo"><b>4. Fechamento</b><h3>A data vai para a agenda</h3><p>Follow-up até o sim, com relatório de quanto cada real investido devolveu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilares">
+    <div class="wrap">
+      <div class="topo-sec"><h2>Três frentes, uma operação.</h2></div>
+      <div class="pilares">
+        <div class="pilar"><h3>Demanda de clientes</h3><p>Geramos contatos de famílias que já querem fazer a festa, em vez de curiosos que só pedem preço.</p></div>
+        <div class="pilar"><h3>Estratégia de marketing</h3><p>Anúncios, criativos e orçamento ajustados com base no que fecha venda, não no que gera mais cliques.</p></div>
+        <div class="pilar"><h3>Processo de vendas</h3><p>Atendimento, visita e follow-up organizados, com relatórios que mostram leads, custo por contato e festas fechadas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" id="historia">
+    <div class="wrap">
+      <h2>Nascemos dentro da operação.</h2>
+      <div class="texto">
+        <p>A Mais Festas começou dentro da rede de franquias Castelo dos Sonhos Buffet. Lá, os anúncios foram responsáveis por mais de 80% do faturamento da rede.</p>
+        <p>Vimos o que faltava: quase ninguém entendia o dia a dia de um buffet. Em 2022 viramos uma agência independente para levar esse método a outros donos de buffet.</p>
+        <div class="numeros">
+          <div><strong>+400</strong><span>clientes atendidos</span></div>
+          <div><strong>2022</strong><span>ano em que viramos agência independente</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reuniao" id="reuniao">
+    <div class="wrap">
+      <div>
+        <h2>Agende sua reunião.</h2>
+        <p class="lead" style="margin-top:16px">Conte rapidamente sobre o seu buffet. Respondemos pelo WhatsApp para combinar o melhor horário.</p>
+      </div>
+      <form id="form" novalidate>
+        <label>Seu nome<input name="nome" autocomplete="name" required placeholder="Maria Silva"></label>
+        <label>Nome do buffet<input name="buffet" autocomplete="organization" required placeholder="Buffet Mundo Encantado"></label>
+        <label>Cidade<input name="cidade" autocomplete="address-level2" required placeholder="Ribeirão Preto, SP"></label>
+        <label>Quanto você pode investir em anúncios por mês?
+          <select name="invest" required>
+            <option value="">Escolha uma faixa</option>
+            <option>Ainda não tenho verba definida</option>
+            <option>Até R$ 1.200</option>
+            <option>R$ 1.200 a R$ 2.000</option>
+            <option>R$ 2.000 a R$ 3.000</option>
+            <option>R$ 5 mil ou mais</option>
+          </select>
+        </label>
+        <button class="btn btn-ouro" type="submit">Agendar reunião</button>
+        <p class="nota" id="erro" role="alert" hidden>Preencha todos os campos para continuar.</p>
+        <p class="nota">Ao enviar, abrimos o WhatsApp com suas respostas já escritas.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.webp" alt="Mais Festas" width="47" height="36" loading="lazy">
+    <span>© 2026 Mais Festas. Agência de tráfego pago para buffets infantis.</span>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-label="Vídeo institucional da Mais Festas">
+  <button class="fechar" type="button" aria-label="Fechar vídeo">×</button>
+  <video controls playsinline preload="none" poster="assets/poster.webp"></video>
+</dialog>
+
+<script>
+// TODO: troque pelo WhatsApp comercial, só números com DDI+DDD (ex.: 5516999999999)
+const WHATSAPP = "5500000000000";
+
+// funil: dispara uma vez quando entra na tela
+const trilha = document.getElementById("trilha");
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver((e, o) => {
+    if (e[0].isIntersecting) { trilha.classList.add("ativa"); o.disconnect(); }
+  }, { threshold: .4 }).observe(trilha);
+} else trilha.classList.add("ativa");
+
+// vídeo completo, carregado só quando pedido
+const dlg = document.getElementById("dlg"), vid = dlg.querySelector("video");
+document.querySelectorAll("[data-abrir-video]").forEach(b => b.addEventListener("click", () => {
+  if (!vid.src) vid.src = "assets/video-completo.mp4";
+  dlg.showModal(); vid.play();
+}));
+dlg.querySelector(".fechar").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => vid.pause());
+
+// formulário -> WhatsApp
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target), erro = document.getElementById("erro");
+  const v = n => (f.get(n) || "").toString().trim();
+  if (!v("nome") || !v("buffet") || !v("cidade") || !v("invest")) { erro.hidden = false; return; }
+  erro.hidden = true;
+  const msg = `Olá! Quero agendar uma reunião com a Mais Festas.\nNome: ${v("nome")}\nBuffet: ${v("buffet")}\nCidade: ${v("cidade")}\nInvestimento mensal: ${v("invest")}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+});
+</script>
+</body>
+</html>
