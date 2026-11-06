@@ -117,7 +117,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 
 /* reunião */
 .reuniao{background:var(--brasa);border-top:1px solid var(--linha)}
-.reuniao .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+.reuniao .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
 form{display:grid;gap:18px}
 label{display:grid;gap:8px;font-weight:500;font-size:.95rem}
 input,select{width:100%;min-height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--linha);background:var(--carvao);color:var(--texto);font-size:1rem;font-family:inherit}
@@ -165,7 +165,7 @@ dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height
       <a href="#funil">Como funciona</a>
       <a href="#pilares">O que fazemos</a>
       <a href="#historia">Quem somos</a>
-      <a class="btn btn-ouro" href="#reuniao">Solicitar Diagnóstico Gratuito</a>
+      <a class="btn btn-ouro" href="https://form.respondi.app/nUsJDYIP" target="_blank" rel="noopener">Solicitar Diagnóstico Gratuito</a>
     </nav>
   </div>
 </header>
@@ -177,7 +177,7 @@ dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height
         <h1>Seu buffet com a agenda cheia de festas.</h1>
         <p class="lead">Tráfego pago, atendimento e vendas trabalhando juntos, feitos por quem nasceu dentro de um buffet e sabe o que acontece depois do clique.</p>
         <div class="acoes">
-          <a class="btn btn-ouro" href="#reuniao">Solicitar Diagnóstico Gratuito</a>
+          <a class="btn btn-ouro" href="https://form.respondi.app/nUsJDYIP" target="_blank" rel="noopener">Solicitar Diagnóstico Gratuito</a>
         </div>
         <div class="prova">
           <div><strong>+400</strong>clientes atendidos</div>
@@ -237,27 +237,12 @@ dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height
   <section class="reuniao" id="reuniao">
     <div class="wrap">
       <div>
-        <h2>Agende sua reunião.</h2>
-        <p class="lead" style="margin-top:16px">Conte rapidamente sobre o seu buffet. Respondemos pelo WhatsApp para combinar o melhor horário.</p>
+        <h2>Solicite seu diagnóstico gratuito.</h2>
+        <p class="lead" style="margin-top:16px">Responda algumas perguntas rápidas sobre o seu buffet para começar.</p>
       </div>
-      <form id="form" novalidate>
-        <label>Seu nome<input name="nome" autocomplete="name" required placeholder="Maria Silva"></label>
-        <label>Nome do buffet<input name="buffet" autocomplete="organization" required placeholder="Buffet Mundo Encantado"></label>
-        <label>Cidade<input name="cidade" autocomplete="address-level2" required placeholder="Ribeirão Preto, SP"></label>
-        <label>Quanto você pode investir em anúncios por mês?
-          <select name="invest" required>
-            <option value="">Escolha uma faixa</option>
-            <option>Ainda não tenho verba definida</option>
-            <option>Até R$ 1.200</option>
-            <option>R$ 1.200 a R$ 2.000</option>
-            <option>R$ 2.000 a R$ 3.000</option>
-            <option>R$ 5 mil ou mais</option>
-          </select>
-        </label>
-        <button class="btn btn-ouro" type="submit">Solicitar Diagnóstico Gratuito</button>
-        <p class="nota" id="erro" role="alert" hidden>Preencha todos os campos para continuar.</p>
-        <p class="nota">Ao enviar, abrimos o WhatsApp com suas respostas já escritas.</p>
-      </form>
+      <div>
+        <a class="btn btn-ouro" href="https://form.respondi.app/nUsJDYIP" target="_blank" rel="noopener">Solicitar Diagnóstico Gratuito</a>
+      </div>
     </div>
   </section>
 </main>
@@ -301,17 +286,6 @@ document.querySelectorAll("[data-abrir-video]").forEach(b => b.addEventListener(
 dlg.querySelector(".fechar").addEventListener("click", () => dlg.close());
 dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
 dlg.addEventListener("close", () => vid.pause());
-
-// formulário -> WhatsApp
-document.getElementById("form").addEventListener("submit", e => {
-  e.preventDefault();
-  const f = new FormData(e.target), erro = document.getElementById("erro");
-  const v = n => (f.get(n) || "").toString().trim();
-  if (!v("nome") || !v("buffet") || !v("cidade") || !v("invest")) { erro.hidden = false; return; }
-  erro.hidden = true;
-  const msg = `Olá! Quero solicitar o diagnóstico gratuito da Mais Festas.\nNome: ${v("nome")}\nBuffet: ${v("buffet")}\nCidade: ${v("cidade")}\nInvestimento mensal: ${v("invest")}`;
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-});
 </script>
 </body>
 </html>
