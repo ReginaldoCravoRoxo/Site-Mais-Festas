@@ -329,6 +329,41 @@ dialog .fechar{position:absolute;top:10px;right:10px;z-index:2;width:44px;height
 const WHATSAPP = "5517991831471";
 document.getElementById("zap").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Vim pelo site da Mais Festas e quero saber mais.")}`;
 
+// rastreamento: guarda todos os parâmetros da URL (utm_*, gclid, fbclid etc.),
+// a página de entrada e a origem, e repassa tudo para o formulário do Respondi
+(function () {
+  const KEY = "mf_origem";
+  let salvo = {};
+  try { salvo = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+
+  // primeiro contato: só grava uma vez
+  if (!salvo.primeiro) {
+    salvo.primeiro = {
+      pagina_entrada: location.origin + location.pathname,
+      origem_site: document.referrer || "direto",
+      data_primeira_visita: new Date().toISOString()
+    };
+  }
+
+  // último contato: todo parâmetro da URL atual sobrescreve o anterior
+  const atual = {};
+  new URLSearchParams(location.search).forEach((v, k) => { if (v) atual[k.slice(0, 60)] = v.slice(0, 300); });
+  if (Object.keys(atual).length) {
+    salvo.params = Object.assign(salvo.params || {}, atual);
+    salvo.params_url_completa = location.href;
+  }
+  try { localStorage.setItem(KEY, JSON.stringify(salvo)); } catch (e) {}
+
+  const dados = Object.assign({}, salvo.params, salvo.primeiro);
+  if (salvo.params_url_completa) dados.url_com_parametros = salvo.params_url_completa;
+
+  document.querySelectorAll('a[href^="https://form.respondi.app/"]').forEach(a => {
+    const u = new URL(a.href);
+    Object.entries(dados).forEach(([k, v]) => u.searchParams.set(k, v));
+    a.href = u.toString();
+  });
+})();
+
 // funil: dispara uma vez quando entra na tela
 const trilha = document.getElementById("trilha");
 if ("IntersectionObserver" in window) {
